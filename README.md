@@ -1,38 +1,40 @@
-# create-svelte
+# SvelteKit Web3 Demo
 
-Everything you need to build a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/master/packages/create-svelte).
+## Summary
+This project is a demo of how to use both [web3.js](https://web3js.readthedocs.io/en/v1.7.4/getting-started.html) and [SvelteUI](https://www.svelteui.org/) in a SvelteKit project. 
 
-## Creating a project
+This project is currently being built out, see the roadmap below.
 
-If you're seeing this, you've probably already done this step. Congrats!
+## Features
+- SvelteKit
+- web3.js
+- [svelte-web3](https://github.com/clbrge/svelte-web3) - a library that provides a nice API for managing web3js connections and objects with svelte stores.
+- [SvelteUI](https://www.svelteui.org/) - the UI kit used in the project. Note that SvelteUI is in beta and under active development at the time of this writing.
 
-```bash
-# create a new project in the current directory
-npm init svelte
 
-# create a new project in my-app
-npm init svelte my-app
-```
+## Roadmap & to do's
 
-## Developing
+### Misc:
+- [] Hamburger not showing when collapse at middle break point. Hamburger only shows on small break point.
+- [] Supported chain IDs. Throw error if injected chain ID is not the chain ID we want to support.
+- [] Persistent web3 via HTTP RPC to make certain calls, so user doesn't need to connect MM for things they shouldn't have to
 
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
+### Block Search
+- [] Change to use non-injected web3 provider. User should not be prompted to connect MM to look at block data from chain
+- [] Block detail page at `/block/[block]` - add table of transactions from that block with link to transaction detail page
+- [] Block detail page at `/block/[block]` - make all cards the same height
+- [] Block detail page at `/block/[block]` - make block hash line wrap or show only portion of it with copy button
 
-```bash
-npm run dev
+### Address Search
+- [] Get address search working
+- [] Show balance (what else) on address page
 
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
-```
+### Transaction Search
+- [] Get transaction search working
+- [] Show from, to, txn receipt
 
-## Building
-
-To create a production version of your app:
-
-```bash
-npm run build
-```
-
-You can preview the production build with `npm run preview`.
-
-> To deploy your app, you may need to install an [adapter](https://kit.svelte.dev/docs/adapters) for your target environment.
+### Future
+- [] Add chain status page that shows current block, chain id, gas price
+- [] Support multichain connections
+- [] Utility for converting wei units
+- [] Interactions with popular NFT contracts. Just read only, read-only contracts calls for popular NFT contracts. Need to figure out how to do state change contract calls in a manner that people are comfortable doing.
