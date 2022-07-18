@@ -16,16 +16,6 @@
 	>
 		Home
 	</Button>
-	<Button
-		variant="light"
-		color="gray"
-		ripple
-		on:click={() => {
-			goto('/');
-		}}
-	>
-		Chain Overview
-	</Button>
 
 	<Divider label="Search" labelPosition="center" />
 	<Button

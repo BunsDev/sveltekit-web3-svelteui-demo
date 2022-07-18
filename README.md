@@ -6,6 +6,8 @@ This project is a demo of how to use both [web3.js](https://web3js.readthedocs.i
 
 This project is currently being built out, see the roadmap below.
 
+Checkout a live version of this project here: https://sveltekit-web3-demo.chuckvallone.com
+
 ## Features
 
 - SvelteKit

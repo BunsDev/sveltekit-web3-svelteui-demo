@@ -1,14 +1,8 @@
 <script>
-	import { Text } from '@svelteuidev/core';
+	import { Title, Anchor } from '@svelteuidev/core';
 </script>
 
-<Text size="xl">SvelteKit-Web3-SvelteUI Demo</Text>
-
-<Text>Tailwinds css</Text>
-<Text>SvelteUI</Text>
-<Text>Web3</Text>
-
-<!-- {$connected}
-{$selectedAccount}
-{$chainId}
-{$chainData} -->
+<Title order={1} mb="$lg">SvelteKit Web3 Demo</Title>
+<Anchor href="https://github.com/smartgoo/sveltekit-web3-demo" external={true}
+	>See the Github repo for more information!</Anchor
+>

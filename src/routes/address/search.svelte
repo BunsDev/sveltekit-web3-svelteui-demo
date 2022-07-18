@@ -26,7 +26,7 @@
 		placeholder="Enter Address"
 		override={{ mb: '$4' }}
 	/>
-	<Button on:click={search} ripple>Submit</Button>
+	<Button on:click={search} ripple disabled>Coming Soon!</Button>
 
 	{#if errors}
 		<Text color="red" override={{ mt: '$4' }}>{errors}</Text>
