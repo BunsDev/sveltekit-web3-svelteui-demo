@@ -13,7 +13,7 @@
 		on:click={() => {
 			goto('/');
 		}}
-	>
+	>	
 		Home
 	</Button>
 

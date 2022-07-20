@@ -3,6 +3,7 @@
 	import { SvelteUIProvider, fns, AppShell, Navbar, Header, Container } from '@svelteuidev/core';
 	import HeaderContent from '$lib/components/layout/HeaderContent.svelte';
 	import NavContent from '$lib/components/layout/NavContent.svelte';
+	import Device from '$lib/components/Device.svelte'
 
 	let isDark = false;
 	let opened = false;
@@ -14,6 +15,8 @@
 		opened = !opened;
 	}
 </script>
+
+<Device />
 
 <SvelteUIProvider ssr withGlobalStyles themeObserver={isDark ? 'dark' : 'light'}>
 	<AppShell

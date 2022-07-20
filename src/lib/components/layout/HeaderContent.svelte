@@ -7,11 +7,13 @@
 		Burger,
 		Tooltip,
 		Button,
-		Menu
+		Menu,
+		Divider
 	} from '@svelteuidev/core';
 	import { Sun, Moon, GithubLogo, Person, LinkBreak1 } from 'radix-icons-svelte';
 	import { useOs, hotkey } from '@svelteuidev/composables';
 	import { defaultEvmStores, connected, selectedAccount } from 'svelte-web3';
+	import { mobile, screenH, screenW } from '$lib/stores';
 
 	const os = useOs();
 	const mod = os === 'macos' ? '⌘' : 'ctrl';
@@ -31,8 +33,40 @@
 	$: iconColor = isDark ? 'white' : 'black';
 </script>
 
+<!-- <Menu mr="xl" transition="scale" transitionOptions={{ duration: 250 }}>
+	<Menu.Label>Navigation</Menu.Label>
+	{#each links as { title, href }}
+		<Menu.Item root="a" {href}>
+			{title}
+		</Menu.Item>
+	{/each}
+	<Divider />
+	<Menu.Label>Experimental Theme Toggle</Menu.Label>
+	<Menu.Item>
+		<ActionIcon variant="default" on:click={toggleTheme} size={30}>
+			{#if $colorScheme === 'dark'}
+				<Moon />
+			{:else}
+				<Sun />
+			{/if}
+		</ActionIcon>
+	</Menu.Item>
+</Menu> -->
+
+
 <Group override={{ height: '100%', px: 20 }} position="apart">
 	<Burger {opened} on:click={toggleOpen} override={{ d: 'block', '@sm': { d: 'none' } }} />
+
+
+	{#if $mobile}
+	<Menu mr="xl" transition="scale" transitionOptions={{ duration: 250 }}>
+		<Menu.Label>Navigation</Menu.Label>
+		<Menu.Item root="a" href="https://github.com/smartgoo/sveltekit-web3-demo">
+			GitHub
+		</Menu.Item>
+		<Button color="orange" on:click={connectMetaMask}>Connect MM</Button>
+	</Menu>
+	{:else}
 	<Anchor
 		underline={false}
 		href="/"
@@ -78,7 +112,8 @@
 				>
 			</Menu>
 		{:else}
-			<Button color="orange" on:click={connectMetaMask}>Connect MetaMask</Button>
+			<Button color="orange" on:click={connectMetaMask}>Connect MM</Button>
 		{/if}
 	</Group>
+	{/if}
 </Group>
