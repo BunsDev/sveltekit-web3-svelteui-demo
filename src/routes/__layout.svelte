@@ -32,7 +32,7 @@
 			<TopBar {isDark} {opened} toggle={toggleTheme} toggleOpen={toggleOpened} />
 		</Header>
 
-		<Container override={{ minSize: '90vh', py: '$lgPX' }}>
+		<Container override={{ minHeight: '90vh', py: '$lgPX' }}>
 			<slot />
 		</Container>
 	</AppShell>

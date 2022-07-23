@@ -1,19 +1,9 @@
 <script lang="ts">
-	import {
-		Group,
-		ActionIcon,
-		Text,
-		Anchor,
-		Burger,
-		Tooltip,
-		Button,
-		Menu,
-		Divider
-	} from '@svelteuidev/core';
+	import { Group, ActionIcon, Text, Anchor, Burger, Tooltip } from '@svelteuidev/core';
 	import { Sun, Moon, GithubLogo } from 'radix-icons-svelte';
 	import { useOs, hotkey } from '@svelteuidev/composables';
 	import { mobile } from '$lib/stores';
-	import MetaMaskButton from './MetaMaskButton.svelte'
+	import MetaMaskButton from './MetaMaskButton.svelte';
 	import AccountDropdown from './AccountDropdown.svelte';
 
 	const os = useOs();
@@ -40,7 +30,10 @@
 				<Text size="xl" override={{ d: 'none', '@sm': { d: 'block' } }}>SvelteKit Web3 Demo</Text>
 			</Group>
 		</Anchor>
-		<Group>
+	{/if}
+
+	<Group>
+		{#if $mobile == false}
 			<Tooltip withArrow label="GitHub">
 				<ActionIcon
 					root="a"
@@ -62,9 +55,9 @@
 					{/if}
 				</ActionIcon>
 			</Tooltip>
+		{/if}
 
-			<AccountDropdown isDark/>
-			<MetaMaskButton />
-		</Group>
-	{/if}
+		<AccountDropdown isDark />
+		<MetaMaskButton />
+	</Group>
 </Group>

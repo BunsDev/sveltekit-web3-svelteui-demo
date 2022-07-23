@@ -20,7 +20,8 @@ Checkout a live version of this project here: https://sveltekit-web3-demo.chuckv
 
 ### Misc:
 
-- [ ] Hamburger not showing when collapse at middle break point. Hamburger only shows on small break point.
+- [x] Hamburger not showing when collapse at middle break point. Hamburger only shows on small break point.
+- [ ] Restructure TopBar. Move Github link, dark mode to Sidebar on mobile. Merge Connect and Account into one component
 - [ ] Supported chain IDs. Throw error if injected chain ID is not the chain ID we want to support.
 - [ ] Persistent web3 via HTTP RPC to make certain calls, so user doesn't need to connect MM for things they shouldn't have to
 
