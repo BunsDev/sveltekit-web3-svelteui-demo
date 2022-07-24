@@ -19,8 +19,8 @@ export const mobileThreshold = writable(800);
  * Detects screen width below 900px
  */
 export const mobile = derived(
-    [screenW, mobileThreshold],
-    ([$screenW, $mobileThreshold]) => $screenW < $mobileThreshold
+	[screenW, mobileThreshold],
+	([$screenW, $mobileThreshold]) => $screenW < $mobileThreshold
 );
 
 /**

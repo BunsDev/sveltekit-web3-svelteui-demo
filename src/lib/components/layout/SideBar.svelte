@@ -1,11 +1,17 @@
 <script lang="ts">
 	import { Stack, Button, Divider } from '@svelteuidev/core';
 	import { connected, selectedAccount } from 'svelte-web3';
+	import { mobile } from '$lib/stores';
+	import MetaMaskButton from './MetaMaskButton.svelte';
 
 	import { goto } from '$app/navigation';
 </script>
 
 <Stack spacing="xs">
+	{#if $mobile}
+		<MetaMaskButton />
+	{/if}
+
 	<Button
 		variant="light"
 		color="gray"
@@ -13,7 +19,7 @@
 		on:click={() => {
 			goto('/');
 		}}
-	>	
+	>
 		Home
 	</Button>
 

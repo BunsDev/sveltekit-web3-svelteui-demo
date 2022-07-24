@@ -1,5 +1,5 @@
 <script context="module">
-	import { screenH, screenW, mobileThreshold, mobile, scrollY, mouse } from '$lib/stores';
+	import { screenH, screenW, scrollY, mouse } from '$lib/stores';
 
 	const mouseMove = (e) => {
 		mouse.update(() => ({ x: e.clientX, y: e.clientY }));

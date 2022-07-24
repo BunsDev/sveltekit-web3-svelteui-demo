@@ -20,7 +20,7 @@
 <Group override={{ height: '100%', px: 20 }} position="apart">
 	<Burger {opened} on:click={toggleOpen} override={{ d: 'block', '@md': { d: 'none' } }} />
 
-	{#if $mobile == false}
+	{#if !$mobile}
 		<Anchor
 			underline={false}
 			href="/"
@@ -33,31 +33,32 @@
 	{/if}
 
 	<Group>
-		{#if $mobile == false}
-			<Tooltip withArrow label="GitHub">
-				<ActionIcon
-					root="a"
-					variant="default"
-					size={30}
-					href="https://github.com/smartgoo/sveltekit-web3-demo"
-					external
-				>
-					<GithubLogo color={iconColor} />
-				</ActionIcon>
-			</Tooltip>
-			<Tooltip withArrow label={`${mod} + J`}>
-				<ActionIcon variant="default" on:click={toggle} size={30}>
-					<div use:hotkey={[['mod+J', () => toggle()]]} />
-					{#if isDark}
-						<Moon />
-					{:else}
-						<Sun />
-					{/if}
-				</ActionIcon>
-			</Tooltip>
-		{/if}
+		<Tooltip withArrow label="GitHub">
+			<ActionIcon
+				root="a"
+				variant="default"
+				size={30}
+				href="https://github.com/smartgoo/sveltekit-web3-demo"
+				external
+			>
+				<GithubLogo color={iconColor} />
+			</ActionIcon>
+		</Tooltip>
+		<Tooltip withArrow label={`${mod} + J`}>
+			<ActionIcon variant="default" on:click={toggle} size={30}>
+				<div use:hotkey={[['mod+J', () => toggle()]]} />
+				{#if isDark}
+					<Moon />
+				{:else}
+					<Sun />
+				{/if}
+			</ActionIcon>
+		</Tooltip>
 
-		<AccountDropdown isDark />
-		<MetaMaskButton />
+		<AccountDropdown />
+
+		{#if !$mobile}
+			<MetaMaskButton />
+		{/if}
 	</Group>
 </Group>

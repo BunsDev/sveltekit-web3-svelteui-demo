@@ -10,11 +10,11 @@
 	}
 </script>
 
-<script>
+<script lang="ts">
 	import { Grid, Card, Title, Text, Loader } from '@svelteuidev/core';
 	import { web3, connected } from 'svelte-web3';
 
-	export let block;
+	export let block: string;
 
 	$: blockData = $connected ? $web3.eth.getBlock(block) : 'Connect MetaMask';
 </script>
