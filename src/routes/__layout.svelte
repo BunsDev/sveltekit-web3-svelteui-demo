@@ -28,7 +28,15 @@
 			<TopBar {isDark} {opened} toggle={toggleTheme} toggleOpen={toggleOpened} />
 		</Header>
 
-		<Navbar slot="navbar" hidden={!opened} width={{ base: 300 }} override={{ p: '$mdPX' }}>
+		<Navbar
+			slot="navbar"
+			width={{
+				sm: 300,
+				base: '100vw'
+			}}
+			hidden={!opened}
+			override={{ p: '$mdPX', position: 'fixed', '@md': { position: 'static' } }}
+		>
 			<SideBar />
 		</Navbar>
 
