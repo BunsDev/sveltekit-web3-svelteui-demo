@@ -1,22 +1,33 @@
 <script context="module">
-	export async function load({ params }) {
+	export async function load({ params, fetch }) {
 		let block = params.block;
+
+		let apiEndpoint = `/api/block/${block}`
+		let fetchblockData = await fetch(apiEndpoint);
+		let blockData = await fetchblockData.json()
 
 		return {
 			props: {
-				block: block
+				block: block,
+				blockData: blockData
 			}
 		};
 	}
 </script>
 
 <script lang="ts">
-	import { Grid, Card, Title, Text, Loader } from '@svelteuidev/core';
-	import { web3, connected } from 'svelte-web3';
+	import { Grid, Card, Title, Text } from '@svelteuidev/core';
 
 	export let block: string;
 
-	$: blockData = $connected ? $web3.eth.getBlock(block) : 'Connect MetaMask';
+	type blockData = {
+		hash: string,
+		timestamp: number,
+		transactions: Array<Object>,
+		gasUsed: number,
+		gasLimit: number
+	}
+	export let blockData: blockData;
 </script>
 
 <Title order={2} mb="$xl">Block {block}</Title>
@@ -25,46 +36,30 @@
 	<Grid.Col md={6} lg={6} override={{ minHeight: '136px' }}>
 		<Card p="lg">
 			<Text weight={'bold'} mb="xs">Block Hash:</Text>
-			{#await blockData}
-				<Loader size="sm" />
-			{:then value}
-				<Text class="whitespace-normal">{value.hash}</Text>
-			{/await}
+			<Text class="whitespace-normal">{blockData.hash}</Text>
 		</Card>
 	</Grid.Col>
 
 	<Grid.Col md={6} lg={6} override={{ minHeight: '136px' }}>
 		<Card p="lg">
 			<Text weight={'bold'} mb="xs">Block Time (UTC):</Text>
-			{#await blockData}
-				<Loader size="sm" />
-			{:then value}
-				{new Date(value.timestamp * 1000).toUTCString()}
-			{/await}
+			{new Date(blockData.timestamp * 1000).toUTCString()}
 		</Card>
 	</Grid.Col>
 
 	<Grid.Col md={6} lg={6} override={{ minHeight: '136px' }}>
 		<Card p="lg">
 			<Text weight={'bold'} mb="xs">Transaction Count:</Text>
-			{#await blockData}
-				<Loader size="sm" />
-			{:then value}
-				{value.transactions.length}
-			{/await}
+			{blockData.transactions.length}
 		</Card>
 	</Grid.Col>
 
 	<Grid.Col md={6} lg={6} override={{ minHeight: '136px' }}>
 		<Card p="lg">
 			<Text weight={'bold'} mb="xs">Gas:</Text>
-			{#await blockData}
-				<Loader size="sm" />
-			{:then value}
-				Used: {value.gasUsed}
-				<br />
-				Limit: {value.gasLimit}
-			{/await}
+			Used: {blockData.gasUsed}
+			<br />
+			Limit: {blockData.gasLimit}
 		</Card>
 	</Grid.Col>
 </Grid>

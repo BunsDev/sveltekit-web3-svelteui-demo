@@ -1,24 +1,13 @@
 <script>
 	import { TextInput, Card, Text, Button } from '@svelteuidev/core';
-	import { web3 } from 'svelte-web3';
 	import { goto } from '$app/navigation';
 
 	let input = '';
 	let errors = '';
-	let loading = false;
 
-	const search = async () => {
-		loading = true;
-		let currentBlock = await $web3.eth.getBlockNumber();
-
-		if (input <= currentBlock) {
-			goto('/block/' + input);
-		} else {
-			errors =
-				'Entered block has not been mined yet. It is greater than current block: ' + currentBlock;
-			loading = false;
-		}
-	};
+	const search = () => {
+		goto(`/block/${input}`)
+	}
 </script>
 
 <Card p="lg">
@@ -31,7 +20,7 @@
 		override={{ mb: '$4' }}
 	/>
 
-	<Button on:click={search} ripple {loading}>Submit</Button>
+	<Button on:click={search} ripple>Submit</Button>
 
 	{#if errors}
 		<Text color="red" override={{ mt: '$4' }}>{errors}</Text>

@@ -39,6 +39,7 @@
 		"@svelteuidev/core": "^0.7.0",
 		"radix-icons-svelte": "^1.2.1",
 		"rehype-slug": "^5.0.1",
-		"svelte-web3": "^3.5.0"
+		"svelte-web3": "^3.5.0",
+		"web3": "^1.7.4"
 	}
 }

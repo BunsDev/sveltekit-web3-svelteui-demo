@@ -3,7 +3,7 @@
 	import { Sun, Moon, GithubLogo } from 'radix-icons-svelte';
 	import { useOs, hotkey } from '@svelteuidev/composables';
 	import { mobile } from '$lib/stores';
-	import MetaMaskButton from './MetaMaskButton.svelte';
+	import ConnectMetaMask from './ConnectMetaMask.svelte';
 	import AccountDropdown from './AccountDropdown.svelte';
 
 	const os = useOs();
@@ -58,7 +58,7 @@
 		<AccountDropdown />
 
 		{#if !$mobile}
-			<MetaMaskButton />
+			<ConnectMetaMask />
 		{/if}
 	</Group>
 </Group>

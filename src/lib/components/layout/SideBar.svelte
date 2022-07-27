@@ -2,14 +2,14 @@
 	import { Stack, Button, Divider } from '@svelteuidev/core';
 	import { connected, selectedAccount } from 'svelte-web3';
 	import { mobile } from '$lib/stores';
-	import MetaMaskButton from './MetaMaskButton.svelte';
+	import ConnectMetaMask from './ConnectMetaMask.svelte';
 
 	import { goto } from '$app/navigation';
 </script>
 
 <Stack spacing="xs">
 	{#if $mobile}
-		<MetaMaskButton />
+		<ConnectMetaMask />
 	{/if}
 
 	<Button
@@ -34,7 +34,7 @@
 	>
 		Block Search
 	</Button>
-	<Button
+	<!-- <Button
 		variant="light"
 		color="gray"
 		ripple
@@ -53,7 +53,7 @@
 		}}
 	>
 		Transaction Search
-	</Button>
+	</Button> -->
 
 	<Divider label="Utilities" labelPosition="center" />
 	<Button

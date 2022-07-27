@@ -26,6 +26,7 @@
 	closeOnClickOutside
 	closeOnEscape
 	withCloseButton
+	size='xs'
 	on:close={toggleOpen}
 >
 	MetaMask not detected.
