@@ -4,9 +4,11 @@
 
 	let input = '';
 	let errors = '';
+	let loading = false
 
 	const search = () => {
-		goto(`/block/${input}`)
+		loading = true;
+		goto(`/block/${input}`);
 	}
 </script>
 
@@ -20,7 +22,7 @@
 		override={{ mb: '$4' }}
 	/>
 
-	<Button on:click={search} ripple>Submit</Button>
+	<Button on:click={search} ripple loading={loading}>Submit</Button>
 
 	{#if errors}
 		<Text color="red" override={{ mt: '$4' }}>{errors}</Text>
