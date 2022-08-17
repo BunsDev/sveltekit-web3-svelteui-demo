@@ -26,33 +26,22 @@
 <Title order={2} mb="$xl">Block {blockNumber}</Title>
 
 <Grid>
-	<Grid.Col md={6} lg={6} override={{ minHeight: '136px' }}>
-		<Card p="lg">
-			<Text weight={'bold'} mb="xs">Block Hash:</Text>
-			<Text class="whitespace-normal">{blockData.hash}</Text>
-		</Card>
-	</Grid.Col>
+	<Grid.Col override={{ minHeight: '136px' }}>
+		<Card>
+			<Text weight={'bold'}>Block Hash:</Text>
+			<Text class="whitespace-normal" mb="lg">{blockData.hash}</Text>
 
-	<Grid.Col md={6} lg={6} override={{ minHeight: '136px' }}>
-		<Card p="lg">
-			<Text weight={'bold'} mb="xs">Block Time (UTC):</Text>
-			{new Date(blockData.timestamp * 1000).toUTCString()}
-		</Card>
-	</Grid.Col>
+			<Text weight={'bold'}>Block Time (UTC):</Text>
+			<Text class="whitespace-normal" mb="lg">{new Date(blockData.timestamp * 1000).toUTCString()}</Text>
 
-	<Grid.Col md={6} lg={6} override={{ minHeight: '136px' }}>
-		<Card p="lg">
-			<Text weight={'bold'} mb="xs">Transaction Count:</Text>
-			{blockData.transactions.length}
-		</Card>
-	</Grid.Col>
+			<Text weight={'bold'}>Transaction Count:</Text>
+			<Text class="whitespace-normal" mb="lg">{blockData.transactions.length}</Text>
 
-	<Grid.Col md={6} lg={6} override={{ minHeight: '136px' }}>
-		<Card p="lg">
-			<Text weight={'bold'} mb="xs">Gas:</Text>
-			Used: {blockData.gasUsed}
-			<br />
-			Limit: {blockData.gasLimit}
+			<Text weight={'bold'}>Gas Used:</Text>
+			<Text class="whitespace-normal" mb="lg">{blockData.gasUsed}</Text>
+
+			<Text weight={'bold'}>Gas Limit:</Text>
+			<Text class="whitespace-normal" mb="lg">{blockData.gasLimit}</Text>
 		</Card>
 	</Grid.Col>
 </Grid>
